@@ -21,7 +21,9 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        'test/specs/cancelDialogActivity.js',
+        'test/specs/dialog.test.js',
+        'test/specs/test.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -49,14 +51,19 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+    hostname: 'localhost',
+    port: 4724,
+    path: '/wd/hub',
+
+
+
     capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'emulator-5554',
-        'appium:platformVersion': '11.0',
-        'appium:automationName': 'UiAutomator2'
+        deviceName: 'emulator-5554',
+        automationName: 'UiAutomator2',
+        browserName: 'Chrome'
     }],
+
 
     //
     // ===================
@@ -114,7 +121,7 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
